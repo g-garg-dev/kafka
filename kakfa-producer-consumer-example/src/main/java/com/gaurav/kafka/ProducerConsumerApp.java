@@ -12,10 +12,10 @@ import com.gaurav.kafka.constants.IKafkaConstants;
 import com.gaurav.kafka.consumer.ConsumerCreator;
 import com.gaurav.kafka.producer.ProducerCreator;
 
-public class App {
+public class ProducerConsumerApp {
 	public static void main(String[] args) {
-//		runProducer();
-		runConsumer();
+		runProducer();
+//		runConsumer();
 	}
 
 	static void runConsumer() {
@@ -47,8 +47,8 @@ public class App {
 	static void runProducer() {
 		Producer<Long, String> producer = ProducerCreator.createProducer();
 
-		for (int index = 0; index < IKafkaConstants.MESSAGE_COUNT; index++) {
-			final ProducerRecord<Long, String> record = new ProducerRecord<Long, String>(IKafkaConstants.TOPIC_NAME,
+		for (Long index = 0L; index < IKafkaConstants.MESSAGE_COUNT; index++) {
+			final ProducerRecord<Long, String> record = new ProducerRecord<Long, String>(IKafkaConstants.TOPIC_NAME,index,
 					"This is record " + index);
 			try {
 				RecordMetadata metadata = producer.send(record).get();

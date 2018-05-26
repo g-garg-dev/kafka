@@ -9,6 +9,7 @@ import org.apache.kafka.common.serialization.LongSerializer;
 import org.apache.kafka.common.serialization.StringSerializer;
 
 import com.gaurav.kafka.constants.IKafkaConstants;
+import com.gaurav.kafka.partitioner.CustomPartitioner;
 
 public class ProducerCreator {
 
@@ -18,6 +19,7 @@ public class ProducerCreator {
 		props.put(ProducerConfig.CLIENT_ID_CONFIG, IKafkaConstants.CLIENT_ID);
 		props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, LongSerializer.class.getName());
 		props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+		props.put(ProducerConfig.PARTITIONER_CLASS_CONFIG, CustomPartitioner.class.getName());
 		return new KafkaProducer<>(props);
 	}
 }
