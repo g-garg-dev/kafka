@@ -23,7 +23,7 @@ public class ProducerCreator {
 		return new KafkaProducer<>(props);
 	}
 	
-	public static Producer<String, String> createProducerNew() {
+	public static Producer<String, String> createProducerString() {
 		Properties props = new Properties();
 		props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, IKafkaConstants.KAFKA_BROKERS);
 		props.put(ProducerConfig.CLIENT_ID_CONFIG, IKafkaConstants.CLIENT_ID);
