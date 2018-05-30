@@ -1,13 +1,28 @@
 package com.gaurav.kafka.streams.partitioner;
 
-import org.apache.kafka.streams.processor.StreamPartitioner;
+import java.util.Map;
 
-public class CustomPartitioner implements StreamPartitioner<String, String> {
+import org.apache.kafka.clients.producer.Partitioner;
+import org.apache.kafka.common.Cluster;
 
-	@Override
-	public Integer partition(String key, String value, int numPartitions) {
-		Integer k = Integer.parseInt(key);
-		return k % numPartitions;
-	}
+public class CustomPartitioner implements Partitioner{
 
+    @Override
+    public void configure(Map<String, ?> configs) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public int partition(String topic, Object key, byte[] keyBytes, Object value, byte[] valueBytes, Cluster cluster) {
+        Integer keyInt=Integer.parseInt(key.toString());
+        return keyInt%50;
+    }
+
+    @Override
+    public void close() {
+        // TODO Auto-generated method stub
+        
+    }
+    
 }

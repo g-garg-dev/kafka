@@ -16,7 +16,7 @@ public class WordCountConsumerBuilder {
 		Properties props = new Properties();
 
 		props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, IKafkaConstants.KAFKA_BROKERS);
-		props.put(StreamsConfig.APPLICATION_ID_CONFIG, IKafkaConstants.GROUP_ID_CONFIG); // must be unique to multiple
+		props.put(StreamsConfig.APPLICATION_ID_CONFIG, IKafkaConstants.GROUP_ID_CONFIG_CONSUMER); // must be unique within the cluster
 																							// instance running of same
 																							// consumer group for same
 																							// topic

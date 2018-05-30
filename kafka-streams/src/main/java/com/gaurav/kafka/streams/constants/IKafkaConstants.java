@@ -13,6 +13,8 @@ public interface IKafkaConstants {
 	
 	public static String GROUP_ID_CONFIG="consumerGroup10";
 	
+	public static String GROUP_ID_CONFIG_CONSUMER="gaurav";
+	
 	public static Integer MAX_NO_MESSAGE_FOUND_COUNT=100;
 	
 	public static String OFFSET_RESET_LATEST="latest";

@@ -28,13 +28,13 @@ public class StringRecordCreator {
 				System.out.println(e);
 			}
 
-			if(i%100==0) {
-				try {
-					Thread.sleep(3000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
+//			if(i%100==0) {
+//				try {
+//					Thread.sleep(3000);
+//				} catch (InterruptedException e) {
+//					e.printStackTrace();
+//				}
+//			}
 		}
 	}
 }

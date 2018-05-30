@@ -12,6 +12,7 @@ import org.apache.kafka.streams.kstream.KGroupedStream;
 import org.apache.kafka.streams.kstream.KStream;
 import org.apache.kafka.streams.kstream.KTable;
 import org.apache.kafka.streams.kstream.KeyValueMapper;
+import org.apache.kafka.streams.kstream.Predicate;
 import org.apache.kafka.streams.kstream.Produced;
 
 import com.gaurav.kafka.streams.constants.IKafkaConstants;
@@ -34,6 +35,15 @@ public class WordCountBuilder {
 		StreamsBuilder builder = new StreamsBuilder();
 
 		KStream<String, String> source = builder.stream(IKafkaConstants.TOPIC_NAME_STRING);
+		
+		source.filter(new Predicate<String, String>() {
+
+                    @Override
+                    public boolean test(String key, String value) {
+                        
+                        return false;
+                    }
+                });
 		
 		
 		KStream<String, String> wordsStream = source.flatMapValues((key,value) -> {

@@ -16,9 +16,9 @@ import com.gaurav.kafka.streams.recordcreator.StringRecordCreator;
 import com.gaurav.kafka.streams.streambuilder.WordCountBuilder;
 import com.gaurav.kafka.streams.streambuilder.WordCountConsumerBuilder;
 
-public class App {
+public class StreamsApp {
 	public static void main(String[] args) {
-		App app = new App();
+	    StreamsApp app = new StreamsApp();
 
 		app.start();
 		
@@ -64,8 +64,8 @@ public class App {
 		});
 
 		streamThread.setName("Stream Thread");
-		streamThread.start();
-		WordCountConsumerBuilder.startWordCountCOnsumerStream();
+//		streamThread.start();
+//		WordCountConsumerBuilder.startWordCountCOnsumerStream();
 	}
 
 }
